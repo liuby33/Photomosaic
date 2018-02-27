@@ -3,14 +3,14 @@
 clear
 load Database.mat picPool;
 %Uncomment the first line if BuildDatabase.m has never been run before.
-targetLocation='Target_Image.jpg';
-resultingPic_Name='Target_ImageGPU.jpg';
+targetLocation='Example Target Image.jpg';
+resultingPic_Name='Example Result Image.jpg';
 target=gpuArray(single(imread(targetLocation)));
 
 %Setup hyperparameters
 numTotalPictures=size(picPool,4);
-m=9; %Determines the roughness parameter.
-n=16;
+m=27; %Determines the roughness parameter.
+n=48;
 comparisonKernalY=9;
 comparisonKernalX=16; %This sets the size of kernals for comparison. Larger = slower = more accurate result.
 roughnessY=floor(size(target,1)/m);
