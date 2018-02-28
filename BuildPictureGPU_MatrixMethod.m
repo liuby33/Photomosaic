@@ -9,14 +9,14 @@ target=gpuArray(single(imread(targetLocation)));
 
 %Setup hyperparameters
 numTotalPictures=size(picPool,4);
-m=27; %Determines the roughness parameter.
-n=48;
-comparisonKernalY=9;
-comparisonKernalX=16; %This sets the size of kernals for comparison. Larger = slower = more accurate result.
+m=45; %Determines the roughness parameter.
+n=80;
+comparisonKernalY=16;
+comparisonKernalX=24; %This sets the size of kernals for comparison. Larger = slower = more accurate result.
 roughnessY=floor(size(target,1)/m);
 roughnessX=floor(size(target,2)/n);
-sizeY=1*m; %Determined by the result image's desired size. 2* means twice the size.
-sizeX=1*n;
+sizeY=2*m; %Determined by the result image's desired size. 2* means twice the size.
+sizeX=2*n;
 
 disp('Hyperparameters are set.');
 
