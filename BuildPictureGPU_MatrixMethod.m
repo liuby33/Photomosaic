@@ -1,22 +1,31 @@
 %function BuildPictureGPU_MatrixMethod()
 
-clear
+%clear
+
+disp('Loading dataset.');
+
 load Database.mat picPool;
-%Uncomment the first line if BuildDatabase.m has never been run before.
-targetLocation='Example Target Image.jpg';
-resultingPic_Name='Example Result Image.jpg';
+%Comment the above line if BuildDatabase.m has been run and picPool is in workspace.
+targetLocation='20171027005214.jpg';
+resultingPic_Name='20171027005214_mosaic.jpg';
 target=gpuArray(single(imread(targetLocation)));
+
+disp('Dataset loaded.');
 
 %Setup hyperparameters
 numTotalPictures=size(picPool,4);
-m=45; %Determines the roughness parameter.
-n=80;
-comparisonKernalY=16;
-comparisonKernalX=24; %This sets the size of kernals for comparison. Larger = slower = more accurate result.
-roughnessY=floor(size(target,1)/m);
-roughnessX=floor(size(target,2)/n);
-sizeY=2*m; %Determined by the result image's desired size. 2* means twice the size.
-sizeX=2*n;
+height=size(picPool,1);
+width=size(picPool,2);
+height_target=size(target,1);
+width_target=size(target,2);
+roughnessX=100; %Change this parameter for roughness adjustment.
+n=floor(width_target/roughnessX);
+m=ceil(n/width*height);
+roughnessY=floor(height_target/m);
+comparisonKernalY=10;
+comparisonKernalX=15; %This sets the size of kernals for comparison. Larger = slower = more accurate result.
+sizeY=4*m; %Determined by the result image's desired size. 2* means twice the size.
+sizeX=4*n;
 
 disp('Hyperparameters are set.');
 
