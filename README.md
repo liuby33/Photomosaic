@@ -3,7 +3,7 @@ Personal Project that makes a photomosaic for a given picture using frames in a 
 
 This project was initiated by an idea of making a photomosaic of a picture of my girlfriend and me as the gift for our first Valentine. The source pictures with which to make the photomosaic was taken from an anime movie called Your Name. 
 
-Originally, the code was only able to perform on a 4k picture. In the past two weeks, I have generalized it to be able to perform on any picture regardless of 
+Originally, the code was only able to perform on a 4k picture. In the past two weeks, I have generalized it to be able to perform on any picture regardless of its aspect ratio. 
 
 The steps of the project can be broken down as follows:
 
